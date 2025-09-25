@@ -20,7 +20,7 @@ public class Main {
         };
 
         String text = textEntered.doSomething();
-        System.out.println(text);
+        System.out.println("The phrase provided: " + text);
 
         FunctionalInterfaceExample wordToFind = () -> {
             System.out.print("Enter a word you want to find: ");
@@ -28,13 +28,17 @@ public class Main {
         };
 
         String  word = wordToFind.doSomething();
-        System.out.println(word);
+        System.out.println("The word to find: " + word);
 
         Pattern pattern = Pattern.compile(word);
         Matcher matcher = pattern.matcher(text);
 
         if(matcher.find()){
-            System.out.println(matcher.group() + " was found");
+            while(matcher.find()){
+                System.out.println(matcher.group() + " was found at position: " + matcher.start() + " - " + matcher.end());
+            }
+        } else {
+            System.out.println("No match was found");
         }
      }
 }
