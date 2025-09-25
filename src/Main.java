@@ -1,6 +1,6 @@
 @FunctionalInterface
 interface FunctionalInterfaceExample {
-    void doSomething();
+    void doSomething(String something);
 }
 
 public class Main {
@@ -8,10 +8,10 @@ public class Main {
 
         System.out.println("Revising Lambda expressions and RegEx!");
 
-        FunctionalInterfaceExample funExample = () -> {
-            System.out.println("This is my first time using Lambda functions in Java:)");
+        FunctionalInterfaceExample sayHello = (name) -> {
+            System.out.println("Hello " + name);
         };
 
-        funExample.doSomething();
+        sayHello.doSomething("Nicole");
      }
 }
