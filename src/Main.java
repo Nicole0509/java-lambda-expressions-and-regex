@@ -1,17 +1,31 @@
+import java.util.Scanner;
+
 @FunctionalInterface
 interface FunctionalInterfaceExample {
-    void doSomething(String something);
+    String doSomething();
 }
 
 public class Main {
     public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
+
         System.out.println("Revising Lambda expressions and RegEx!");
 
-        FunctionalInterfaceExample sayHello = (name) -> {
-            System.out.println("Hello " + name);
+        FunctionalInterfaceExample textEntered = () -> {
+            System.out.print("Enter a phrase: ");
+            return scanner.nextLine().trim();
         };
 
-        sayHello.doSomething("Nicole");
+        String text = textEntered.doSomething();
+        System.out.println(text);
+
+        FunctionalInterfaceExample wordToFind = () -> {
+            System.out.print("Enter a word you want to find: ");
+            return scanner.nextLine().trim();
+        };
+
+        String  word = wordToFind.doSomething();
+        System.out.println(word);
      }
 }
