@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @FunctionalInterface
 interface FunctionalInterfaceExample {
@@ -27,5 +29,12 @@ public class Main {
 
         String  word = wordToFind.doSomething();
         System.out.println(word);
+
+        Pattern pattern = Pattern.compile(word);
+        Matcher matcher = pattern.matcher(text);
+
+        if(matcher.find()){
+            System.out.println(matcher.group() + " was found");
+        }
      }
 }
